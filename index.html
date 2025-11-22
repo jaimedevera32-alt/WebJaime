@@ -45,15 +45,15 @@
 				<h2>Servicios</h2>
 				<div class="services-grid">
 					<article class="service">
-						<h3>Visitas guiadas privadas</h3>
+						<h3><span class="icon">📍</span> Visitas guiadas privadas</h3>
 						<p>Rutas a medida para grupos privados: familias, amigos o clientes corporativos. Itinerarios personalizados y horarios flexibles.</p>
 					</article>
 					<article class="service">
-						<h3>Rutas temáticas</h3>
+						<h3><span class="icon">📜</span> Rutas temáticas</h3>
 						<p>Talleres de leyendas, arquitectura románica, infancia de Segovia y rutas gastronómicas con degustaciones locales.</p>
 					</article>
 					<article class="service">
-						<h3>Excursiones de medio día</h3>
+						<h3><span class="icon">🚌</span> Excursiones de medio día</h3>
 						<p>Visitas organizadas a La Granja, Sierra y enclaves cercanos, con transporte opcional y guion histórico.</p>
 					</article>
 				</div>
@@ -166,23 +166,38 @@
 				<h2>Galería</h2>
 				<p class="muted">Imágenes de muestra (sustituye por tus fotos para una web real)</p>
 				<div class="gallery-grid">
-					<div class="photo" aria-hidden="true">Foto 1</div>
-					<div class="photo" aria-hidden="true">Foto 2</div>
-					<div class="photo" aria-hidden="true">Foto 3</div>
-					<div class="photo" aria-hidden="true">Foto 4</div>
+					<!-- Las imágenes aquí son placeholders; puedes reemplazarlas con imágenes tuyas o enlaces (ej. iStock) -->
+					<div class="photo" data-src="https://www.istockphoto.com/es/foto/segovia-acueducto" data-caption="Acueducto al amanecer — iStock referencia" tabindex="0">Acueducto</div>
+					<div class="photo" data-src="https://www.istockphoto.com/es/foto/alcazar-segovia" data-caption="Alcázar desde el mirador — iStock referencia" tabindex="0">Alcázar</div>
+					<div class="photo" data-src="https://www.istockphoto.com/es/foto/calle-segovia" data-caption="Callejuelas de Segovia — iStock referencia" tabindex="0">Callejuelas</div>
+					<div class="photo" data-src="https://www.istockphoto.com/es/foto/gastronomia-segovia" data-caption="Sabores de Segovia — iStock referencia" tabindex="0">Gastronomía</div>
+				</div>
+
+				<!-- Modal ligero para visualizar imagen y pie -->
+				<div id="modal" class="modal" aria-hidden="true">
+					<div class="modal-content" role="dialog" aria-modal="true">
+						<button class="modal-close" aria-label="Cerrar">✕</button>
+						<div class="modal-image" aria-hidden="true"></div>
+						<p class="modal-caption"></p>
+					</div>
 				</div>
 			</section>
 
 			<section id="faq" class="card">
 				<h2>Preguntas frecuentes</h2>
-				<dl class="faq-list">
-					<dt>¿Ofreces visitas en inglés?</dt>
-					<dd>Sí. Disponibilidad en inglés y francés, bajo petición.</dd>
-					<dt>¿Qué incluye el precio?</dt>
-					<dd>El precio orientativo incluye la guía, el guion interpretativo y las entradas cuando se indica expresamente; degustaciones y transporte pueden llevar suplemento.</dd>
-					<dt>¿Se pueden adaptar rutas para escolares?</dt>
-					<dd>Sí. Las rutas educativas incorporan actividades y materiales adaptados por edad.</dd>
-				</dl>
+				<!-- Usamos <details> nativo para acordeón accesible -->
+				<details>
+					<summary>¿Ofreces visitas en inglés?</summary>
+					<p>Sí. Disponibilidad en inglés y francés, bajo petición.</p>
+				</details>
+				<details>
+					<summary>¿Qué incluye el precio?</summary>
+					<p>El precio orientativo incluye la guía, el guion interpretativo y las entradas cuando se indica expresamente; degustaciones y transporte pueden llevar suplemento.</p>
+				</details>
+				<details>
+					<summary>¿Se pueden adaptar rutas para escolares?</summary>
+					<p>Sí. Las rutas educativas incorporan actividades y materiales adaptados por edad.</p>
+				</details>
 			</section>
 
 			<section id="itineraries" class="card">
@@ -228,12 +243,48 @@
 
 		<footer class="site-footer" role="contentinfo">
 			<div class="container">
-				<small>&copy; <span id="year"></span> Jaime Navarro — Guía turístico en Segovia</small>
+				<div class="footer-grid">
+					<small>&copy; <span id="year"></span> Jaime Navarro — Guía turístico en Segovia</small>
+					<div class="socials">
+						<a href="#" aria-label="Instagram">IG: @jaime_segovia</a>
+						<a href="#" aria-label="Twitter">TW: @jaime_segovia</a>
+						<a href="#" aria-label="Facebook">FB: /jaimenavarro</a>
+					</div>
+				</div>
 			</div>
 		</footer>
 
 		<script>
 			document.getElementById('year').textContent = new Date().getFullYear();
+
+			// Accordion: <details> funciona nativamente; mejorar accesibilidad con teclas si hace falta
+
+			// Galería modal simple
+			(function(){
+				const modal = document.getElementById('modal');
+				const modalImage = modal && modal.querySelector('.modal-image');
+				const modalCaption = modal && modal.querySelector('.modal-caption');
+				const closeBtn = modal && modal.querySelector('.modal-close');
+				function openModal(src, caption){
+					if(!modal) return;
+					modalImage.style.backgroundImage = `url('${src}')`;
+					modalCaption.textContent = caption || '';
+					modal.setAttribute('aria-hidden','false');
+					modal.classList.add('open');
+				}
+				function closeModal(){
+					if(!modal) return;
+					modal.setAttribute('aria-hidden','true');
+					modal.classList.remove('open');
+				}
+				if(closeBtn) closeBtn.addEventListener('click', closeModal);
+				modal && modal.addEventListener('click', function(e){ if(e.target===modal) closeModal(); });
+				const photos = document.querySelectorAll('.photo');
+				photos.forEach(p=>{
+					p.addEventListener('click', ()=> openModal(p.dataset.src || '', p.dataset.caption || p.textContent));
+					p.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); openModal(p.dataset.src || '', p.dataset.caption || p.textContent);} });
+				});
+			})();
 		</script>
 	</body>
 </html>
