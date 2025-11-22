@@ -1,1 +1,60 @@
-Pagina web de Jaime
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Jaime — Guía turístico en Segovia</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<header class="hero">
+			<div class="container">
+				<h1 class="name">Jaime</h1>
+				<p class="role">Guía turístico en Segovia — Historia, leyendas y experiencias</p>
+				<p class="cta">Recorridos personalizados por la ciudad y sus alrededores.</p>
+			</div>
+		</header>
+
+		<main class="container">
+			<section id="about" class="card">
+				<h2>Sobre mí</h2>
+				<p>Soy guía turístico con amplia experiencia en Segovia. Me apasiona transmitir la historia, el patrimonio y las anécdotas que hacen única a la ciudad. Trabajo con grupos pequeños y adapto las rutas según intereses culturales, fotográficos y gastronómicos.</p>
+			</section>
+
+			<section id="experience" class="card">
+				<h2>Trayectoria</h2>
+				<ul>
+					<li><strong>Guía oficial de Segovia</strong> — Tours regulares por el Acueducto, la Catedral y el Alcázar.</li>
+					<li><strong>Rutas temáticas</strong> — Leyendas, arquitectura románica y gastronomía local.</li>
+					<li><strong>Colaboraciones</strong> — Visitas para escuelas, empresas y eventos culturales.</li>
+				</ul>
+			</section>
+
+			<section id="tours" class="card">
+				<h2>Rutas destacadas</h2>
+				<ul>
+					<li>Tour clásico por el Acueducto, Catedral y Alcázar (2 horas)</li>
+					<li>Rutas de leyendas nocturnas (1.5 horas)</li>
+					<li>Excursiones a La Granja y alrededores (medio día)</li>
+				</ul>
+			</section>
+
+			<section id="contact" class="card contact-card">
+				<h2>Contacto</h2>
+				<p>Email: <a href="mailto:jaime@example.com">jaime@example.com</a></p>
+				<p>Teléfono: <a href="tel:+34123456789">+34 123 456 789</a></p>
+				<p>Indica la fecha y número de participantes para consultar disponibilidad.</p>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container">
+				<small>&copy; <span id="year"></span> Jaime — Guía turístico en Segovia</small>
+			</div>
+		</footer>
+
+		<script>
+			document.getElementById('year').textContent = new Date().getFullYear();
+		</script>
+	</body>
+</html>
