@@ -7,49 +7,93 @@
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
-		<header class="hero">
-			<div class="container">
-				<h1 class="name">Jaime</h1>
-				<p class="role">Guía turístico en Segovia — Historia, leyendas y experiencias</p>
-				<p class="cta">Recorridos personalizados por la ciudad y sus alrededores.</p>
+		<header class="hero" role="banner">
+			<div class="container hero-inner">
+				<div class="avatar" aria-hidden="true">
+					<!-- Placeholder SVG estilizado -->
+					<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" class="avatar-svg">
+						<rect width="96" height="96" rx="16" fill="#F6F3FF" />
+						<g transform="translate(18,18)" fill="#C9E7E2">
+							<circle cx="30" cy="20" r="14" />
+							<path d="M0 62c0-16 36-16 36 0v2H0v-2z" fill="#EAF7F5" />
+						</g>
+					</svg>
+				</div>
+
+				<div class="hero-text">
+					<h1 class="name">Jaime</h1>
+					<p class="role">Guía turístico en Segovia — Historia, leyendas y experiencias</p>
+					<p class="lede">Recorridos íntimos y personalizados por la ciudad — fotografía, gastronomía y rutas nocturnas.</p>
+					<div class="actions">
+						<a class="btn primary" href="mailto:jaime@example.com?subject=Reserva%20de%20ruta">Reservar ahora</a>
+						<a class="btn ghost" href="#tours">Ver rutas</a>
+					</div>
+				</div>
 			</div>
 		</header>
 
-		<main class="container">
+		<main class="container" role="main">
 			<section id="about" class="card">
 				<h2>Sobre mí</h2>
-				<p>Soy guía turístico con amplia experiencia en Segovia. Me apasiona transmitir la historia, el patrimonio y las anécdotas que hacen única a la ciudad. Trabajo con grupos pequeños y adapto las rutas según intereses culturales, fotográficos y gastronómicos.</p>
+				<p>Mi nombre es Jaime Navarro. Nací y crecí en Segovia; desde joven me fascinó la mezcla de historia y vida cotidiana de la ciudad. Tras estudiar <strong>Historia del Arte</strong> y completar la formación oficial como guía turístico, llevo más de 8 años compartiendo Segovia con visitantes de todo el mundo.</p>
 			</section>
 
-			<section id="experience" class="card">
-				<h2>Trayectoria</h2>
-				<ul>
-					<li><strong>Guía oficial de Segovia</strong> — Tours regulares por el Acueducto, la Catedral y el Alcázar.</li>
-					<li><strong>Rutas temáticas</strong> — Leyendas, arquitectura románica y gastronomía local.</li>
-					<li><strong>Colaboraciones</strong> — Visitas para escuelas, empresas y eventos culturales.</li>
+			<section id="experience" class="card two-columns">
+				<div>
+					<h2>Trayectoria</h2>
+					<ul>
+						<li><strong>Guía oficial de Segovia</strong> — Tours por Acueducto, Catedral y Alcázar.</li>
+						<li><strong>Rutas temáticas</strong> — Leyendas, arquitectura románica y gastronomía local.</li>
+						<li><strong>Proyectos</strong> — Colaboración con festivales culturales y programas educativos.</li>
+					</ul>
+				</div>
+				<div>
+					<h2>Formación y idiomas</h2>
+					<p><strong>Formación:</strong> Licenciatura en Historia del Arte; curso de Interpretación del Patrimonio (Oficial).</p>
+					<p><strong>Idiomas:</strong> Español (nativo), Inglés (avanzado), Francés (intermedio).</p>
+				</div>
+			</section>
+
+			<section id="skills" class="card">
+				<h2>Habilidades</h2>
+				<ul class="skills">
+					<li>Comunicación y storytelling</li>
+					<li>Itinerarios fotográficos</li>
+					<li>Rutas accesibles y adaptadas</li>
+					<li>Conocimiento profundo del patrimonio segoviano</li>
 				</ul>
 			</section>
 
 			<section id="tours" class="card">
 				<h2>Rutas destacadas</h2>
 				<ul>
-					<li>Tour clásico por el Acueducto, Catedral y Alcázar (2 horas)</li>
-					<li>Rutas de leyendas nocturnas (1.5 horas)</li>
-					<li>Excursiones a La Granja y alrededores (medio día)</li>
+					<li><strong>Clásico imprescindible</strong> — Acueducto, Catedral y Alcázar (2 h).</li>
+					<li><strong>Segovia de noche</strong> — Leyendas y rincones escondidos (1.5 h).</li>
+					<li><strong>Sabores de Segovia</strong> — Ruta gastronómica con paradas en tabernas y hornos tradicionales.</li>
 				</ul>
+			</section>
+
+			<section id="testimonials" class="card">
+				<h2>Testimonios</h2>
+				<blockquote>
+					«Jaime convirtió nuestra visita en una experiencia inolvidable: atento, conocedor y con anécdotas que nadie más nos contó.» — <em>María, España</em>
+				</blockquote>
+				<blockquote>
+					«Perfecto para fotografía urbana. Nos mostró los mejores encuadres y nos llevó a sitios poco conocidos.» — <em>Tom, Reino Unido</em>
+				</blockquote>
 			</section>
 
 			<section id="contact" class="card contact-card">
 				<h2>Contacto</h2>
 				<p>Email: <a href="mailto:jaime@example.com">jaime@example.com</a></p>
 				<p>Teléfono: <a href="tel:+34123456789">+34 123 456 789</a></p>
-				<p>Indica la fecha y número de participantes para consultar disponibilidad.</p>
+				<p>También disponible para eventos privados, itinerarios escolares y colaboraciones culturales.</p>
 			</section>
 		</main>
 
-		<footer class="site-footer">
+		<footer class="site-footer" role="contentinfo">
 			<div class="container">
-				<small>&copy; <span id="year"></span> Jaime — Guía turístico en Segovia</small>
+				<small>&copy; <span id="year"></span> Jaime Navarro — Guía turístico en Segovia</small>
 			</div>
 		</footer>
 
